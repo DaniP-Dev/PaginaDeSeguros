@@ -1,0 +1,15 @@
+.ep1 {
+    background-image: url("/imgs/ep1-heroSec.png");
+    background-size: cover;
+    background-position: center;
+}
+.ep2 {
+    background-image: url("/imgs/ep2-heroSec.png");
+    background-size: cover;
+    background-position: center;
+}
+.ep3 {
+    background-image: url("/imgs/ep3-heroSec.png");
+    background-size: cover;
+    background-position: center;
+}

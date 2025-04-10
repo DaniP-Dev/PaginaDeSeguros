@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Empresa A",
+        "features": [
+            "Beneficio 1",
+            "Beneficio 2",
+            "Beneficio 3"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Empresa B",
+        "features": [
+            "Característica 1",
+            "Característica 2",
+            "Característica 3"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Empresa C",
+        "features": [
+            "Ventaja 1",
+            "Ventaja 2",
+            "Ventaja 3"
+        ]
+    }
+]
