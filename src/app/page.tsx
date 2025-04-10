@@ -5,6 +5,7 @@ import SocialProof from "@/pages/landingPage/socialProof/SocialProof";
 import CTA from "@/pages/landingPage/cta/CTA";
 import FormCapture from "@/pages/landingPage/formCapture/FormCapture";
 import Footer from "@/components/Footer";
+import "./globals.css";
 
 import { Metadata } from "next";
 
@@ -16,12 +17,14 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <FeaturesBenefits />
-      <SocialProof />
-      <CTA />
-      <FormCapture />
-      <Footer />
+      <div className="">
+        <HeroSection />
+        <FeaturesBenefits />
+        <SocialProof />
+        <CTA />
+        <FormCapture />
+        <Footer />
+      </div>
     </>
   );
 }

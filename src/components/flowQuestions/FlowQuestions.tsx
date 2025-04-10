@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-const FlowQuestions = () => {
+const FlowQuestions = ({ className }: { className?: string }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [animateModal, setAnimateModal] = useState(false); // Controla la transición
   const [step, setStep] = useState(0);
@@ -44,7 +44,7 @@ const FlowQuestions = () => {
   };
 
   return (
-    <>
+    <div className={className}>
       <button
         onClick={openModal}
         className="px-4 py-2 bg-green-600 hover:bg-pink-700 focus:bg-green-700 active:bg-green-800 text-white rounded transition-colors"
@@ -89,7 +89,7 @@ const FlowQuestions = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

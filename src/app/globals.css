@@ -24,3 +24,21 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.fHeroSec {
+  background-image: url("/imgs/bg_hero_desktop.webp");
+  background-size: cover; /* Asegura que la imagen ocupe todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  height: 100vh; /* Por defecto, ocupa toda la altura de la ventana */
+}
+
+@media (max-width: 768px) {
+  /* Ajusta el fondo para que ocupe solo el 80% de la altura en pantallas pequeñas */
+  .fHeroSec {
+    height: 80vh; /* Cambia la altura a 80% de la ventana en móviles */
+    background-size: cover; /* Hace que la imagen cubra todo el div */
+    background-position: center; /* Centra la imagen dentro del div */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+  }
+}
