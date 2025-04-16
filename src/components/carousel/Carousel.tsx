@@ -1,45 +1,27 @@
-import React, { useState } from "react";
+// Carousel.tsx
+import React from "react";
 
-const Carousel = ({
-  title,
-  features,
-}: {
+interface CarouselProps {
   title: string;
-  features: string[];
-}) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  videoUrl: string;
+}
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === features.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? features.length - 1 : prevIndex - 1
-    );
-  };
-
+const Carousel: React.FC<CarouselProps> = ({ title, videoUrl }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 w-full">
-      <h3 className="text-lg font-bold text-center mb-4">{title}</h3>
-      <div className="text-center text-gray-700 mb-4">
-        <p>{features[currentIndex]}</p>
+    <div className="card bg-white shadow-lg rounded-lg overflow-hidden w-full h-full">
+      {/* Usamos 'aspect-video' para mantener una relación 16:9 */}
+      <div className="relative w-full aspect-video">
+        <video
+          src={videoUrl}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       </div>
-      <div className="flex justify-between">
-        <button
-          onClick={handlePrev}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Anterior
-        </button>
-        <button
-          onClick={handleNext}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Siguiente
-        </button>
+      <div className="p-4">
+        <h3 className="text-lg font-semibold">{title}</h3>
       </div>
     </div>
   );

@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Juan Pérez",
+        "avatar": "https://via.placeholder.com/40",
+        "time": "Hace 2 horas",
+        "comment": "Este producto cambió mi vida. La experiencia fue increíble y el servicio inmejorable.",
+        "footer": "¡Gracias por tu comentario!"
+    },
+    {
+        "id": 2,
+        "name": "Mariana G.",
+        "avatar": "https://via.placeholder.com/40",
+        "time": "Hace 3 horas",
+        "comment": "Gracias al seguro, mi familia está protegida. Altamente recomendado para quienes buscan tranquilidad.",
+        "footer": "Experiencia comprobada."
+    },
+    {
+        "id": 3,
+        "name": "Carlos M.",
+        "avatar": "https://via.placeholder.com/40",
+        "time": "Hace 1 hora",
+        "comment": "Un servicio rápido y eficaz. Estoy muy satisfecho con la atención recibida.",
+        "footer": "Testimonio veraz."
+    },
+    {
+        "id": 4,
+        "name": "Isabel L.",
+        "avatar": "https://via.placeholder.com/40",
+        "time": "Hace 30 minutos",
+        "comment": "La atención personalizada y el seguimiento continuo me dan confianza en cada paso.",
+        "footer": "Recomendado 100%."
+    },
+    {
+        "id": 5,
+        "name": "Diego R.",
+        "avatar": "https://via.placeholder.com/40",
+        "time": "Hace 4 horas",
+        "comment": "No puedo estar más satisfecho. Mi experiencia con ellos ha superado todas las expectativas.",
+        "footer": "Servicio excepcional."
+    }
+]

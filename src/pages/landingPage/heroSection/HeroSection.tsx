@@ -5,7 +5,7 @@ import FlowQuestions from "@/components/flowQuestions/FlowQuestions";
 
 const HeroSection = () => {
   return (
-    <div className="relative h-[90vh] grid grid-cols-1 md:grid-cols-2 items-center p-4">
+    <div className="relative h-[70vh] grid grid-cols-1 md:grid-cols-2 items-center p-4 lg:mb-60">
       {/* Columna 1: Contenido actual */}
       <div className="text-center flex flex-col justify-center items-center space-y-6">
         <h1 className="text-3xl font-bold text-white">
@@ -37,9 +37,11 @@ const HeroSection = () => {
 
       {/* Columna 2: Imagen */}
       <div className="hidden md:flex justify-center items-center">
-        <img
-          src="/imgs/hero_image.webp"
-          alt="Imagen de seguro"
+        <video
+          src="https://stapefoneappresdev001.z20.web.core.windows.net/one-app/resources/components/inter/Hero.webm"
+          autoPlay
+          loop
+          muted
           className="max-w-full h-auto"
         />
       </div>

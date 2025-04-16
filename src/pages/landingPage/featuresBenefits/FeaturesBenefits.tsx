@@ -6,7 +6,9 @@ const FeaturesBenefits = () => {
   return (
     <>
       <div className="text-center">
-        <h1 className="text-4xl font-bold p-5">Caracteristicas y Beneficios</h1>
+        <h1 className="text-4xl font-bold p-5">
+          Te ayudamos a proteger desde tu coche hasta tu mascota
+        </h1>
         <CarouselContainer />
       </div>
     </>
