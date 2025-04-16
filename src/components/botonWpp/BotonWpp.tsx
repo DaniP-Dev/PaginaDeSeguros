@@ -1,5 +1,4 @@
 import React from "react";
-import "./botonWpp.css";
 
 const BotonWpp = () => {
   return (
