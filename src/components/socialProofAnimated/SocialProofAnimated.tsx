@@ -7,7 +7,7 @@ const SocialProofAnimated = () => {
     <>
       {/* Visible solo en pantallas lg y superiores */}
       <div className="hidden lg:block p-8 bg-gray-50">
-        <div className="flex gap-8 animate-marquee whitespace-nowrap">
+        <div className="flex gap-8 animate-marquee">
           {Comentarios.map((comentario) => (
             <div
               key={comentario.id}

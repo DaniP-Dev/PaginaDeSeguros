@@ -18,14 +18,14 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div>
-          <HeroSection />
-          <FeaturesBenefits />
-          <SocialProof />
-          <CTA />
-          <FormCapture />
-          <Footer />
-          <BotonWpp />
+      <div className="max-w-screen overflow-hidden mx-auto">
+        <HeroSection />
+        <FeaturesBenefits />
+        <SocialProof />
+        <CTA />
+        <FormCapture />
+        <Footer />
+        <BotonWpp />
       </div>
     </>
   );

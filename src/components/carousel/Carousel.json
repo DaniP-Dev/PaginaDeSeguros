@@ -1,27 +1,57 @@
 [
     {
         "id": 1,
-        "name": "Producto 1",
-        "url": "https://firebasestorage.googleapis.com/v0/b/inter-connect-prod.appspot.com/o/cocheseguro%2Fassets2%2Fmultilanding_Mani%20Salud%20Protect.webm?alt=media&token=16f0bc0e-3479-4513-89c2-d51223445def"
+        "name": "Seguro de vida",
+        "url": "https://firebasestorage.googleapis.com/v0/b/inter-connect-prod.appspot.com/o/cocheseguro%2Fassets2%2Fmultilanding_Mani%20Salud%20Protect.webm?alt=media&token=16f0bc0e-3479-4513-89c2-d51223445def",
+        "descripcion": {
+            "title": "Seguro de vida",
+            "detalle": "Este producto está diseñado para proteger a tus seres queridos en caso de fallecimiento.",
+            "beneficios": "Proporciona tranquilidad financiera a tu familia.",
+            "cobertura": "Incluye fallecimiento por enfermedad o accidente."
+        }
     },
     {
         "id": 2,
-        "name": "Producto 2",
-        "url": "https://stapefoneappresdev001.z20.web.core.windows.net/one-app/resources/components/inter/Coche.webm"
+        "name": "Seguro de Coche",
+        "url": "https://stapefoneappresdev001.z20.web.core.windows.net/one-app/resources/components/inter/Coche.webm",
+        "descripcion": {
+            "title": "Seguro de Coche",
+            "detalle": "Este producto ofrece cobertura para proteger tu coche ante accidentes o daños.",
+            "beneficios": "Asistencia vial y cobertura amplia.",
+            "cobertura": "Incluye daños materiales, robo y responsabilidad civil."
+        }
     },
     {
         "id": 3,
-        "name": "Producto 3",
-        "url": "https://firebasestorage.googleapis.com/v0/b/inter-connect-prod.appspot.com/o/cocheseguro%2Fassets2%2FMoto.webm?alt=media&token=f5b19e98-2117-4fa7-97a1-30e8f1bec9b2"
+        "name": "Seguro motos",
+        "url": "https://firebasestorage.googleapis.com/v0/b/inter-connect-prod.appspot.com/o/cocheseguro%2Fassets2%2FMoto.webm?alt=media&token=f5b19e98-2117-4fa7-97a1-30e8f1bec9b2",
+        "descripcion": {
+            "title": "Seguro motos",
+            "detalle": "Este producto está diseñado para proteger tu moto contra accidentes y otros riesgos.",
+            "beneficios": "Cobertura personalizada para motociclistas.",
+            "cobertura": "Incluye daños a terceros y accidentes personales."
+        }
     },
     {
         "id": 4,
-        "name": "Producto 4",
-        "url": "https://stapefoneappresdev001.z20.web.core.windows.net/one-app/resources/components/inter/GMM.webm"
+        "name": "Seguro gastos médicos",
+        "url": "https://stapefoneappresdev001.z20.web.core.windows.net/one-app/resources/components/inter/GMM.webm",
+        "descripcion": {
+            "title": "Seguro gastos médicos",
+            "detalle": "Este producto cubre gastos médicos mayores para ti y tu familia.",
+            "beneficios": "Acceso a hospitales y médicos de calidad.",
+            "cobertura": "Incluye consultas, hospitalización y cirugías."
+        }
     },
     {
         "id": 5,
-        "name": "Producto 5",
-        "url": "https://firebasestorage.googleapis.com/v0/b/inter-connect-prod.appspot.com/o/cocheseguro%2Fassets2%2Fmascota_Mascota.webm?alt=media&token=6543d71d-fa40-4ebd-b7b7-5ef92b33caec"
+        "name": "Seguro mascotas",
+        "url": "https://firebasestorage.googleapis.com/v0/b/inter-connect-prod.appspot.com/o/cocheseguro%2Fassets2%2Fmascota_Mascota.webm?alt=media&token=6543d71d-fa40-4ebd-b7b7-5ef92b33caec",
+        "descripcion": {
+            "title": "Seguro mascotas",
+            "detalle": "Este producto está enfocado en proteger la salud y bienestar de tus mascotas.",
+            "beneficios": "Cobertura médica y asistencia veterinaria.",
+            "cobertura": "Incluye consultas, vacunas y emergencias."
+        }
     }
 ]
