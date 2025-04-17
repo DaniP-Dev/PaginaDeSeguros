@@ -49,7 +49,7 @@ const FlowQuestions = ({ className }: { className?: string }) => {
         onClick={openModal}
         className="px-4 py-2 bg-green-600 hover:bg-pink-700 focus:bg-green-700 active:bg-green-800 text-white rounded transition-colors"
       >
-        Abrir Flujo de Preguntas
+        Cotizar
       </button>
 
       {modalOpen && (
