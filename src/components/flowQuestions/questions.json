@@ -1,0 +1,43 @@
+[
+    {
+        "title": "¿Qué tipo de seguro deseas?",
+        "options": [
+            "Auto",
+            "Moto",
+            "Flotilla",
+            "Gastos Médicos",
+            "Vida + Ahorro",
+            "Retiro"
+        ]
+    },
+    {
+        "title": "Datos básicos",
+        "options": [
+            "Marca/Modelo/Año/Valor (vehículo)",
+            "Edad y dependientes (vida/retiro)"
+        ]
+    },
+    {
+        "title": "Riesgos y uso",
+        "options": [
+            "Kilometraje (kms/mes)",
+            "Ubicación de garaje",
+            "Fumador / No fumador",
+            "Años de experiencia de conducción"
+        ]
+    },
+    {
+        "title": "Coberturas",
+        "options": [
+            "Responsabilidad civil básica",
+            "Cobertura amplia (daños propios + robo)",
+            "Asistencia vial",
+            "Suma asegurada alta",
+            "Deducible bajo"
+        ]
+    },
+    {
+        "title": "Revisión final",
+        "options": []
+    }
+]

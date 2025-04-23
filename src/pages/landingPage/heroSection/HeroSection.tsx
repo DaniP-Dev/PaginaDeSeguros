@@ -25,11 +25,12 @@ const HeroSection = () => {
             <option value="" disabled hidden>
               Elige lo que quieras Asegurar
             </option>
-            <option value="option1">Mi Coche</option>
-            <option value="option2">Mi Moto</option>
-            <option value="option3">Vida + Ahorro</option>
-            <option value="option4">Mi Perro</option>
-            <option value="option5">Mi Gato</option>
+            <option value="opcion_auto">Auto</option>
+            <option value="opcion_moto">Moto</option>
+            <option value="opcion_flotilla">Flotilla</option>
+            <option value="opcion_gastos_medicos">Gastos Médicos</option>
+            <option value="opcion_retiro">Retiro</option>
+            <option value="opcion_vida_ahorro">Vida + Ahorro</option>
           </select>
           <FlowQuestions className="w-full" />
         </div>
