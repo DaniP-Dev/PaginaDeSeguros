@@ -1,43 +1,92 @@
 [
     {
-        "title": "¿Qué tipo de seguro deseas?",
-        "options": [
-            "Auto",
-            "Moto",
-            "Flotilla",
-            "Gastos Médicos",
-            "Vida + Ahorro",
-            "Retiro"
+        "type": "Auto",
+        "questions": [
+            {
+                "title": "Datos básicos",
+                "options": ["Marca/Modelo/Año/Valor (vehículo)"]
+            },
+            {
+                "title": "Riesgos y uso",
+                "options": ["Kilometraje (kms/mes)", "Ubicación de garaje"]
+            },
+            {
+                "title": "Coberturas",
+                "options": ["Responsabilidad civil básica", "Cobertura amplia"]
+            }
         ]
     },
     {
-        "title": "Datos básicos",
-        "options": [
-            "Marca/Modelo/Año/Valor (vehículo)",
-            "Edad y dependientes (vida/retiro)"
+        "type": "Moto",
+        "questions": [
+            {
+                "title": "Datos básicos",
+                "options": ["Marca/Modelo/Año/Valor (vehículo)"]
+            },
+            {
+                "title": "Riesgos y uso",
+                "options": ["Kilometraje (kms/mes)", "Ubicación de garaje"]
+            },
+            {
+                "title": "Coberturas",
+                "options": ["Responsabilidad civil básica", "Cobertura amplia"]
+            }
         ]
     },
     {
-        "title": "Riesgos y uso",
-        "options": [
-            "Kilometraje (kms/mes)",
-            "Ubicación de garaje",
-            "Fumador / No fumador",
-            "Años de experiencia de conducción"
+        "type": "Flotilla",
+        "questions": [
+            {
+                "title": "Datos básicos",
+                "options": ["Cantidad de vehículos", "Marca/Modelo/Año/Valor (vehículos)"]
+            },
+            {
+                "title": "Riesgos y uso",
+                "options": ["Kilometraje promedio (kms/mes)", "Ubicación de garaje"]
+            },
+            {
+                "title": "Coberturas",
+                "options": ["Responsabilidad civil básica", "Cobertura amplia"]
+            }
         ]
     },
     {
-        "title": "Coberturas",
-        "options": [
-            "Responsabilidad civil básica",
-            "Cobertura amplia (daños propios + robo)",
-            "Asistencia vial",
-            "Suma asegurada alta",
-            "Deducible bajo"
+        "type": "Gastos Médicos",
+        "questions": [
+            {
+                "title": "Datos básicos",
+                "options": ["Edad", "Historial médico"]
+            },
+            {
+                "title": "Coberturas",
+                "options": ["Cobertura nacional/internacional", "Red de hospitales"]
+            }
         ]
     },
     {
-        "title": "Revisión final",
-        "options": []
+        "type": "Vida + Ahorro",
+        "questions": [
+            {
+                "title": "Datos básicos",
+                "options": ["Edad", "Número de dependientes"]
+            },
+            {
+                "title": "Coberturas",
+                "options": ["Suma asegurada alta", "Cobertura por invalidez"]
+            }
+        ]
+    },
+    {
+        "type": "Retiro",
+        "questions": [
+            {
+                "title": "Datos básicos",
+                "options": ["Edad", "Ingresos mensuales"]
+            },
+            {
+                "title": "Coberturas",
+                "options": ["Ahorro a largo plazo", "Cobertura por invalidez"]
+            }
+        ]
     }
 ]

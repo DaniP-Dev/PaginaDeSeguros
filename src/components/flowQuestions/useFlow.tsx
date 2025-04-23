@@ -1,24 +1,25 @@
 "use client";
-import { useState } from "react";
-import questions from "./questions.json";
+import React from "react";
+import questionsData from "./questions.json";
 
 export function useFlow() {
-  const [open, setOpen] = useState(false);
-  const [anim, setAnim] = useState(false);
-  const [i, setI] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [open, setOpen] = React.useState(false);
+  const [i, setI] = React.useState(0);
+  const [answers, setAnswers] = React.useState<string[]>([]);
+  const [selectedType, setSelectedType] = React.useState<string>("Auto"); // Tipo seleccionado
 
-  const openModal = () => {
-    setOpen(true);
-    setTimeout(() => setAnim(true), 10);
-  };
+  // Filtrar preguntas según el tipo seleccionado
+  const questions = React.useMemo(() => {
+    const typeData = questionsData.find((q) => q.type === selectedType);
+    return typeData ? typeData.questions : [];
+  }, [selectedType]);
+
+  const openModal = () => setOpen(true);
 
   const closeModal = () => {
-    setAnim(false);
-    setTimeout(() => {
-      setOpen(false);
-      setI(0);
-    }, 300);
+    setOpen(false);
+    setI(0); // Reinicia el índice
+    setAnswers([]); // Limpia las respuestas
   };
 
   const selectOption = (option: string) => {
@@ -27,23 +28,12 @@ export function useFlow() {
     setAnswers(newAnswers);
   };
 
-  const next = () => {
-    if (i < questions.length - 1) {
-      setI(i + 1);
-    } else {
-      closeModal();
-    }
-  };
-
-  const prev = () => {
-    if (i > 0) {
-      setI(i - 1);
-    }
-  };
+  const next = () => setI((prev) => prev + 1);
+  const prev = () => setI((prev) => Math.max(prev - 1, 0));
 
   return {
     open,
-    anim,
+    anim: open,
     i,
     questions,
     answers,
@@ -52,5 +42,6 @@ export function useFlow() {
     selectOption,
     next,
     prev,
+    setSelectedType, // Permite cambiar el tipo de preguntas
   };
 }
