@@ -3,16 +3,35 @@
         "type": "Auto",
         "questions": [
             {
-                "title": "Datos básicos",
-                "options": ["Marca/Modelo/Año/Valor (vehículo)"]
+                "title": "Datos del vehículo",
+                "options": [
+                    "Marca del vehículo (API de marcas)",
+                    "Modelo del vehículo (dependiente de la marca, API)",
+                    "Año del vehículo (lista estática o dinámica)",
+                    "Valor aproximado del vehículo (manual o rangos)"
+                ]
             },
             {
-                "title": "Riesgos y uso",
-                "options": ["Kilometraje (kms/mes)", "Ubicación de garaje"]
+                "title": "Uso del vehículo",
+                "options": [
+                    "Uso personal",
+                    "Uso comercial"
+                ]
             },
             {
-                "title": "Coberturas",
-                "options": ["Responsabilidad civil básica", "Cobertura amplia"]
+                "title": "Cobertura deseada",
+                "options": [
+                    "Cobertura básica",
+                    "Cobertura amplia",
+                    "Cobertura premium"
+                ]
+            },
+            {
+                "title": "Información del conductor",
+                "options": [
+                    "Edad del conductor",
+                    "Historial de accidentes (sí/no)"
+                ]
             }
         ]
     },
@@ -20,16 +39,35 @@
         "type": "Moto",
         "questions": [
             {
-                "title": "Datos básicos",
-                "options": ["Marca/Modelo/Año/Valor (vehículo)"]
+                "title": "Datos de la moto",
+                "options": [
+                    "Tipo de moto (Deportiva, Scooter, Touring, etc.)",
+                    "Marca y modelo (API)",
+                    "Año de fabricación",
+                    "Valor aproximado"
+                ]
             },
             {
-                "title": "Riesgos y uso",
-                "options": ["Kilometraje (kms/mes)", "Ubicación de garaje"]
+                "title": "Uso de la moto",
+                "options": [
+                    "Uso personal",
+                    "Trabajo",
+                    "Recreativo"
+                ]
             },
             {
-                "title": "Coberturas",
-                "options": ["Responsabilidad civil básica", "Cobertura amplia"]
+                "title": "Cobertura deseada",
+                "options": [
+                    "Cobertura básica",
+                    "Cobertura completa"
+                ]
+            },
+            {
+                "title": "Información del conductor",
+                "options": [
+                    "Edad del conductor",
+                    "Experiencia manejando motos (años)"
+                ]
             }
         ]
     },
@@ -37,16 +75,34 @@
         "type": "Flotilla",
         "questions": [
             {
-                "title": "Datos básicos",
-                "options": ["Cantidad de vehículos", "Marca/Modelo/Año/Valor (vehículos)"]
+                "title": "Datos de la flotilla",
+                "options": [
+                    "Número de vehículos en la flotilla",
+                    "Tipos de vehículos (autos, camiones, motos, etc.)"
+                ]
             },
             {
-                "title": "Riesgos y uso",
-                "options": ["Kilometraje promedio (kms/mes)", "Ubicación de garaje"]
+                "title": "Uso de los vehículos",
+                "options": [
+                    "Personal",
+                    "Comercial",
+                    "Transporte de carga"
+                ]
             },
             {
-                "title": "Coberturas",
-                "options": ["Responsabilidad civil básica", "Cobertura amplia"]
+                "title": "Cobertura deseada",
+                "options": [
+                    "Cobertura básica",
+                    "Cobertura amplia",
+                    "Cobertura personalizada"
+                ]
+            },
+            {
+                "title": "Información adicional",
+                "options": [
+                    "Ubicación de operación de la flotilla",
+                    "Historial de accidentes de la flotilla"
+                ]
             }
         ]
     },
@@ -54,12 +110,28 @@
         "type": "Gastos Médicos",
         "questions": [
             {
-                "title": "Datos básicos",
-                "options": ["Edad", "Historial médico"]
+                "title": "Datos personales",
+                "options": [
+                    "Edad",
+                    "Género",
+                    "Estado civil"
+                ]
             },
             {
-                "title": "Coberturas",
-                "options": ["Cobertura nacional/internacional", "Red de hospitales"]
+                "title": "Cobertura deseada",
+                "options": [
+                    "Individual",
+                    "Familiar",
+                    "Cobertura nacional",
+                    "Cobertura internacional"
+                ]
+            },
+            {
+                "title": "Historial médico",
+                "options": [
+                    "Enfermedades preexistentes (sí/no)",
+                    "Fumador (sí/no)"
+                ]
             }
         ]
     },
@@ -67,12 +139,27 @@
         "type": "Vida + Ahorro",
         "questions": [
             {
-                "title": "Datos básicos",
-                "options": ["Edad", "Número de dependientes"]
+                "title": "Datos personales",
+                "options": [
+                    "Edad",
+                    "Género",
+                    "Estado civil"
+                ]
             },
             {
-                "title": "Coberturas",
-                "options": ["Suma asegurada alta", "Cobertura por invalidez"]
+                "title": "Cobertura deseada",
+                "options": [
+                    "Monto asegurado deseado",
+                    "Plazo del seguro (años)"
+                ]
+            },
+            {
+                "title": "Objetivo del ahorro",
+                "options": [
+                    "Educación",
+                    "Retiro",
+                    "Inversión"
+                ]
             }
         ]
     },
@@ -80,12 +167,24 @@
         "type": "Retiro",
         "questions": [
             {
-                "title": "Datos básicos",
-                "options": ["Edad", "Ingresos mensuales"]
+                "title": "Datos personales",
+                "options": [
+                    "Edad actual",
+                    "Edad deseada para el retiro"
+                ]
             },
             {
-                "title": "Coberturas",
-                "options": ["Ahorro a largo plazo", "Cobertura por invalidez"]
+                "title": "Ahorro deseado",
+                "options": [
+                    "Monto mensual que desea ahorrar",
+                    "Monto total esperado al momento del retiro"
+                ]
+            },
+            {
+                "title": "Cobertura adicional",
+                "options": [
+                    "Seguro de vida incluido (sí/no)"
+                ]
             }
         ]
     }

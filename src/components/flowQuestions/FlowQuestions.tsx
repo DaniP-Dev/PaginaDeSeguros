@@ -1,32 +1,35 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
 import questionsData from "./questions.json";
 
 export default function FlowQuestions({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
-  const [selectedType, setSelectedType] = useState<string | null>(null); // Tipo de seguro seleccionado
-  const [i, setI] = useState(0); // Índice de la pregunta actual
-  const [answers, setAnswers] = useState<Record<number, string | string[]>>(
-    {}
-  ); // Respuestas del usuario
+  const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [i, setI] = useState(0);
+  const [answers, setAnswers] = useState<Record<number, string | string[]>>({});
+  const [progress, setProgress] = useState(0);
 
   // Filtrar preguntas según el tipo seleccionado
   const questions = selectedType
     ? questionsData.find((q) => q.type === selectedType)?.questions || []
     : [];
 
-  const current = questions[i]; // Pregunta actual
-  const isLast = i === questions.length - 1; // Verifica si es la última pregunta
+  const current = questions[i];
+  const isLast = i === questions.length - 1;
+
+  useEffect(() => {
+    setProgress(((i + 1) / questions.length) * 100);
+  }, [i, questions.length]);
 
   const openModal = () => setOpen(true);
   const closeModal = () => {
     setOpen(false);
-    setSelectedType(null); // Reinicia el tipo seleccionado
-    setI(0); // Reinicia el índice
-    setAnswers({}); // Limpia las respuestas
+    setSelectedType(null);
+    setI(0);
+    setAnswers({});
   };
 
   const handleInputChange = (value: string | string[], idx: number) => {
@@ -35,6 +38,51 @@ export default function FlowQuestions({ className }: { className?: string }) {
 
   const next = () => setI((prev) => prev + 1);
   const prev = () => setI((prev) => Math.max(prev - 1, 0));
+
+  const renderInput = (option: string, idx: number) => {
+    if (option.includes("API")) {
+      // Simula una lista desplegable dinámica
+      return (
+        <select
+          key={idx}
+          onChange={(e) => handleInputChange(e.target.value, i)}
+          className="p-2 border rounded-lg w-full bg-gray-800 text-white"
+        >
+          <option value="" disabled selected>
+            Selecciona una opción
+          </option>
+          <option value="Opción 1">Opción 1</option>
+          <option value="Opción 2">Opción 2</option>
+        </select>
+      );
+    } else if (option.includes("manual")) {
+      // Campo de texto para ingreso manual
+      return (
+        <input
+          key={idx}
+          type="text"
+          placeholder={option}
+          onChange={(e) => handleInputChange(e.target.value, i)}
+          className="p-2 border rounded-lg w-full bg-gray-800 text-white"
+        />
+      );
+    } else {
+      // Botones de selección
+      return (
+        <button
+          key={idx}
+          onClick={() => handleInputChange(option, i)}
+          className={`px-4 py-2 border rounded transition-colors ${
+            answers[i] === option
+              ? "bg-blue-600 text-white"
+              : "bg-gray-700 text-white hover:bg-gray-600"
+          }`}
+        >
+          {option}
+        </button>
+      );
+    }
+  };
 
   return (
     <div className={className}>
@@ -64,10 +112,7 @@ export default function FlowQuestions({ className }: { className?: string }) {
               exit={{ scale: 0.9, opacity: 0 }}
             >
               <header className="flex justify-between items-center mb-4">
-                <h2
-                  id="modal-title"
-                  className="text-xl font-bold text-white"
-                >
+                <h2 id="modal-title" className="text-xl font-bold text-white">
                   {!selectedType
                     ? "Selecciona el tipo de seguro"
                     : isLast
@@ -84,7 +129,6 @@ export default function FlowQuestions({ className }: { className?: string }) {
               </header>
 
               {!selectedType ? (
-                // Pantalla inicial: selección del tipo de seguro
                 <div className="grid gap-3">
                   {questionsData.map((q) => (
                     <button
@@ -97,44 +141,38 @@ export default function FlowQuestions({ className }: { className?: string }) {
                   ))}
                 </div>
               ) : !isLast ? (
-                // Paso normal: muestra inputs según el tipo de pregunta
                 <>
                   <div className="mb-6">
                     {current?.options.map((opt, idx) => (
                       <div key={idx} className="mb-4">
-                        <button
-                          onClick={() => handleInputChange(opt, i)}
-                          className={`px-4 py-2 border rounded transition-colors ${
-                            answers[i] === opt
-                              ? "bg-blue-600 text-white"
-                              : "bg-gray-700 text-white hover:bg-gray-600"
-                          }`}
-                        >
-                          {opt}
-                        </button>
+                        {renderInput(opt, idx)}
                       </div>
                     ))}
                   </div>
-                  <div className="flex justify-between">
-                    {i > 0 && (
-                      <button
-                        onClick={prev}
-                        className="px-4 py-2 bg-gray-500 hover:bg-gray-400 rounded shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400"
-                      >
-                        Anterior
-                      </button>
-                    )}
+                  <div className="flex justify-between items-center">
+                    <button
+                      onClick={prev}
+                      disabled={i === 0}
+                      className="px-4 py-2 bg-gray-500 hover:bg-gray-400 rounded shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    >
+                      Anterior
+                    </button>
+                    <div className="w-full bg-gray-700 h-2 rounded-lg mx-4">
+                      <div
+                        className="bg-blue-600 h-2 rounded-lg"
+                        style={{ width: `${progress}%` }}
+                      ></div>
+                    </div>
                     <button
                       onClick={next}
                       disabled={!answers[i]}
-                      className="ml-auto px-4 py-2 bg-blue-600 disabled:opacity-50 hover:bg-blue-700 text-white rounded shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      className="px-4 py-2 bg-blue-600 disabled:opacity-50 hover:bg-blue-700 text-white rounded shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                     >
                       Siguiente
                     </button>
                   </div>
                 </>
               ) : (
-                // Resumen final con enlace a WhatsApp
                 <>
                   <h2 className="text-xl font-bold mb-4">
                     Resumen de tus respuestas
@@ -142,31 +180,16 @@ export default function FlowQuestions({ className }: { className?: string }) {
                   <ul className="list-disc list-inside mb-6">
                     {questions.map((q, idx) => (
                       <li key={q.title}>
-                        <strong>{q.title}:</strong>{" "}
-                        {answers[idx] || "—"}
+                        <strong>{q.title}:</strong> {answers[idx] || "—"}
                       </li>
                     ))}
                   </ul>
-                  {(() => {
-                    const phone = "3016328564";
-                    const userAnswers = questions.map(
-                      (q, idx) => `${q.title}: ${answers[idx] || "—"}`
-                    );
-                    const greeting = "Hola, me gustaría hablar con un asesor.";
-                    const message =
-                      userAnswers.join("%0A") + "%0A%0A" + greeting;
-                    const waLink = `https://wa.me/${phone}?text=${message}`;
-                    return (
-                      <a
-                        href={waLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded"
-                      >
-                        Conoce tu resultado
-                      </a>
-                    );
-                  })()}
+                  <button
+                    onClick={closeModal}
+                    className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded shadow-md"
+                  >
+                    Finalizar
+                  </button>
                 </>
               )}
             </motion.div>
