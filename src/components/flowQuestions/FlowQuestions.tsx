@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
+import { Combobox } from "@headlessui/react";
 import questionsData from "./questions.json";
 
 export default function FlowQuestions({ className }: { className?: string }) {
@@ -11,6 +12,7 @@ export default function FlowQuestions({ className }: { className?: string }) {
   const [i, setI] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string | string[]>>({});
   const [progress, setProgress] = useState(0);
+  const [query, setQuery] = useState("");
 
   // Filtrar preguntas según el tipo seleccionado
   const questions = selectedType
@@ -39,47 +41,119 @@ export default function FlowQuestions({ className }: { className?: string }) {
   const next = () => setI((prev) => prev + 1);
   const prev = () => setI((prev) => Math.max(prev - 1, 0));
 
+  const generateWhatsAppLink = () => {
+    const phone = "3016328564"; // Número de WhatsApp
+    const userAnswers = questions.map((q, idx) => {
+      const answer = answers[idx] || "—"; // Captura la respuesta o usa "—" si está vacía
+      return `${q.title}: ${answer}`;
+    });
+
+    const message = `Hola, me gustaría cotizar un seguro de tipo ${selectedType}.%0A%0A${userAnswers.join(
+      "%0A"
+    )}`;
+    return `https://wa.me/${phone}?text=${message}`;
+  };
+
   const renderInput = (option: string, idx: number) => {
     if (option.includes("API")) {
-      // Simula una lista desplegable dinámica
+      // Combobox dinámico
+      const options = ["Opción 1", "Opción 2", "Opción 3"];
+      const filteredOptions = query
+        ? options.filter((opt) =>
+            opt.toLowerCase().includes(query.toLowerCase())
+          )
+        : options;
+
       return (
-        <select
-          key={idx}
-          onChange={(e) => handleInputChange(e.target.value, i)}
-          className="p-2 border rounded-lg w-full bg-gray-800 text-white"
-        >
-          <option value="" disabled selected>
-            Selecciona una opción
-          </option>
-          <option value="Opción 1">Opción 1</option>
-          <option value="Opción 2">Opción 2</option>
-        </select>
+        <div key={idx} className="mb-4">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
+            {option}
+          </label>
+          <Combobox
+            value={answers[idx] || ""}
+            onChange={(value) => handleInputChange(value, idx)}
+          >
+            <Combobox.Input
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Escribe para buscar..."
+              className="p-2 border rounded-lg w-full bg-gray-800 text-white"
+            />
+            <Combobox.Options className="bg-gray-700 text-white rounded-lg mt-2 shadow-lg">
+              {filteredOptions.map((opt, idx) => (
+                <Combobox.Option
+                  key={idx}
+                  value={opt}
+                  className="p-2 hover:bg-blue-600 cursor-pointer"
+                >
+                  {opt}
+                </Combobox.Option>
+              ))}
+            </Combobox.Options>
+          </Combobox>
+        </div>
+      );
+    } else if (option.includes("Año del vehículo")) {
+      // Selector de años
+      const currentYear = new Date().getFullYear();
+      const years = Array.from(
+        { length: 30 },
+        (_, index) => currentYear - index
+      );
+
+      return (
+        <div key={idx} className="mb-4">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
+            {option}
+          </label>
+          <select
+            defaultValue=""
+            onChange={(e) => handleInputChange(e.target.value, idx)}
+            className="p-2 border rounded-lg w-full bg-gray-800 text-white"
+          >
+            <option value="" disabled>
+              Selecciona el año
+            </option>
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+        </div>
       );
     } else if (option.includes("manual")) {
       // Campo de texto para ingreso manual
       return (
-        <input
-          key={idx}
-          type="text"
-          placeholder={option}
-          onChange={(e) => handleInputChange(e.target.value, i)}
-          className="p-2 border rounded-lg w-full bg-gray-800 text-white"
-        />
+        <div key={idx} className="mb-4">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
+            {option}
+          </label>
+          <input
+            type="text"
+            placeholder={option}
+            onChange={(e) => handleInputChange(e.target.value, idx)}
+            className="p-2 border rounded-lg w-full bg-gray-800 text-white"
+          />
+        </div>
       );
     } else {
       // Botones de selección
       return (
-        <button
-          key={idx}
-          onClick={() => handleInputChange(option, i)}
-          className={`px-4 py-2 border rounded transition-colors ${
-            answers[i] === option
-              ? "bg-blue-600 text-white"
-              : "bg-gray-700 text-white hover:bg-gray-600"
-          }`}
-        >
-          {option}
-        </button>
+        <div key={idx} className="mb-4">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
+            {option}
+          </label>
+          <button
+            onClick={() => handleInputChange(option, idx)}
+            className={`px-4 py-2 border rounded transition-colors ${
+              answers[idx] === option
+                ? "bg-blue-600 text-white"
+                : "bg-gray-700 text-white hover:bg-gray-600"
+            }`}
+          >
+            {option}
+          </button>
+        </div>
       );
     }
   };
@@ -143,6 +217,9 @@ export default function FlowQuestions({ className }: { className?: string }) {
               ) : !isLast ? (
                 <>
                   <div className="mb-6">
+                    <h3 className="text-lg font-semibold mb-4 text-center">
+                      {current?.title}
+                    </h3>
                     {current?.options.map((opt, idx) => (
                       <div key={idx} className="mb-4">
                         {renderInput(opt, idx)}
@@ -174,7 +251,7 @@ export default function FlowQuestions({ className }: { className?: string }) {
                 </>
               ) : (
                 <>
-                  <h2 className="text-xl font-bold mb-4">
+                  <h2 className="text-xl font-bold mb-4 text-center">
                     Resumen de tus respuestas
                   </h2>
                   <ul className="list-disc list-inside mb-6">
@@ -184,12 +261,14 @@ export default function FlowQuestions({ className }: { className?: string }) {
                       </li>
                     ))}
                   </ul>
-                  <button
-                    onClick={closeModal}
+                  <a
+                    href={generateWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded shadow-md"
                   >
-                    Finalizar
-                  </button>
+                    Enviar por WhatsApp
+                  </a>
                 </>
               )}
             </motion.div>
