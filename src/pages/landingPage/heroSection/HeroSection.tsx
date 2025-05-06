@@ -32,7 +32,7 @@ const HeroSection = () => {
             <option value="opcion_retiro">Retiro</option>
             <option value="opcion_vida_ahorro">Vida + Ahorro</option>
           </select>
-          <FlowQuestions className="w-full" />
+          <FlowQuestions />
         </div>
       </div>
 
