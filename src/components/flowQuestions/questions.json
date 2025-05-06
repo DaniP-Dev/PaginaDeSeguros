@@ -9,7 +9,45 @@
                     "Modelo del vehículo (dependiente de la marca, API)",
                     "Año del vehículo (lista estática o dinámica)",
                     "Valor aproximado del vehículo (manual o rangos)"
-                ]
+                ],
+                "apiExamples": {
+                    "Marca del vehículo": [
+                        "Toyota",
+                        "Ford",
+                        "Chevrolet",
+                        "Honda",
+                        "Nissan",
+                        "Volkswagen",
+                        "BMW",
+                        "Mercedes-Benz",
+                        "Hyundai",
+                        "Kia"
+                    ],
+                    "Modelo del vehículo": [
+                        "Corolla",
+                        "Focus",
+                        "Cruze",
+                        "Civic",
+                        "Altima",
+                        "Jetta",
+                        "X5",
+                        "C-Class",
+                        "Elantra",
+                        "Sportage"
+                    ],
+                    "Año del vehículo": [
+                        "2023",
+                        "2022",
+                        "2021",
+                        "2020",
+                        "2019",
+                        "2018",
+                        "2017",
+                        "2016",
+                        "2015",
+                        "2014"
+                    ]
+                }
             },
             {
                 "title": "Uso del vehículo",

@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
 import { Combobox } from "@headlessui/react";
 import questionsData from "./questions.json";
+import autosData from "./autos.json";
 
 export default function FlowQuestions({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
@@ -13,10 +14,14 @@ export default function FlowQuestions({ className }: { className?: string }) {
   const [answers, setAnswers] = useState<Record<number, string | string[]>>({});
   const [progress, setProgress] = useState(0);
   const [query, setQuery] = useState("");
+  const [selectedMarca, setSelectedMarca] = useState<string | null>(null);
 
   // Filtrar preguntas según el tipo seleccionado
-  const questions = selectedType
-    ? questionsData.find((q) => q.type === selectedType)?.questions || []
+  const selectedData = questionsData.find((q) => q.type === selectedType);
+  const questions = selectedData?.questions || [];
+  const marcas = autosData.marcas || [];
+  const modelos = selectedMarca
+    ? marcas.find((marca) => marca.nombre === selectedMarca)?.modelos || []
     : [];
 
   const current = questions[i];
@@ -32,6 +37,7 @@ export default function FlowQuestions({ className }: { className?: string }) {
     setSelectedType(null);
     setI(0);
     setAnswers({});
+    setSelectedMarca(null);
   };
 
   const handleInputChange = (value: string | string[], idx: number) => {
@@ -55,14 +61,13 @@ export default function FlowQuestions({ className }: { className?: string }) {
   };
 
   const renderInput = (option: string, idx: number) => {
-    if (option.includes("API")) {
-      // Combobox dinámico
-      const options = ["Opción 1", "Opción 2", "Opción 3"];
-      const filteredOptions = query
-        ? options.filter((opt) =>
-            opt.toLowerCase().includes(query.toLowerCase())
+    if (option.includes("Marca del vehículo")) {
+      // Combobox dinámico para marcas
+      const filteredMarcas = query
+        ? marcas.filter((marca) =>
+            marca.nombre.toLowerCase().includes(query.toLowerCase())
           )
-        : options;
+        : marcas;
 
       return (
         <div key={idx} className="mb-4">
@@ -70,22 +75,61 @@ export default function FlowQuestions({ className }: { className?: string }) {
             {option}
           </label>
           <Combobox
-            value={answers[idx] || ""}
-            onChange={(value) => handleInputChange(value, idx)}
+            value={selectedMarca || ""}
+            onChange={(value) => {
+              setSelectedMarca(value);
+              handleInputChange(value ?? "", idx);
+            }}
           >
             <Combobox.Input
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Escribe para buscar..."
+              placeholder="Selecciona una marca..."
               className="p-2 border rounded-lg w-full bg-gray-800 text-white"
             />
             <Combobox.Options className="bg-gray-700 text-white rounded-lg mt-2 shadow-lg">
-              {filteredOptions.map((opt, idx) => (
+              {filteredMarcas.map((marca) => (
                 <Combobox.Option
-                  key={idx}
-                  value={opt}
+                  key={marca.id}
+                  value={marca.nombre}
                   className="p-2 hover:bg-blue-600 cursor-pointer"
                 >
-                  {opt}
+                  {marca.nombre}
+                </Combobox.Option>
+              ))}
+            </Combobox.Options>
+          </Combobox>
+        </div>
+      );
+    } else if (option.includes("Modelo del vehículo")) {
+      // Combobox dinámico para modelos
+      const filteredModelos = query
+        ? modelos.filter((modelo) =>
+            modelo.toLowerCase().includes(query.toLowerCase())
+          )
+        : modelos;
+
+      return (
+        <div key={idx} className="mb-4">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
+            {option}
+          </label>
+          <Combobox
+            value={typeof answers[idx] === "string" ? answers[idx] : ""}
+            onChange={(value) => handleInputChange(value ?? "", idx)}
+          >
+            <Combobox.Input
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Selecciona un modelo..."
+              className="p-2 border rounded-lg w-full bg-gray-800 text-white"
+            />
+            <Combobox.Options className="bg-gray-700 text-white rounded-lg mt-2 shadow-lg">
+              {filteredModelos.map((modelo, idx) => (
+                <Combobox.Option
+                  key={idx}
+                  value={modelo}
+                  className="p-2 hover:bg-blue-600 cursor-pointer"
+                >
+                  {modelo}
                 </Combobox.Option>
               ))}
             </Combobox.Options>
@@ -94,10 +138,9 @@ export default function FlowQuestions({ className }: { className?: string }) {
       );
     } else if (option.includes("Año del vehículo")) {
       // Selector de años
-      const currentYear = new Date().getFullYear();
       const years = Array.from(
         { length: 30 },
-        (_, index) => currentYear - index
+        (_, index) => new Date().getFullYear() - index
       );
 
       return (
