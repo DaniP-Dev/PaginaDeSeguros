@@ -4,12 +4,49 @@ import "./insuranceGlobal.css";
 
 const RetirementInsurance = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [insuredAge, setInsuredAge] = React.useState("");
+  const [monthlyIncome, setMonthlyIncome] = React.useState("");
+  const [savingsGoal, setSavingsGoal] = React.useState("");
+  const [retirementYears, setRetirementYears] = React.useState("");
+  const [beneficiaries, setBeneficiaries] = React.useState("");
+  const [healthStatus, setHealthStatus] = React.useState("");
+  const [fullName, setFullName] = React.useState("");
+  const [userAge, setUserAge] = React.useState("");
+  const [userIncome, setUserIncome] = React.useState("");
+  const [userBeneficiaries, setUserBeneficiaries] = React.useState("");
+  const [currentPage, setCurrentPage] = React.useState(1);
 
   const openModal = () => {
     setIsModalOpen(true);
   };
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const sendToWhatsApp = () => {
+    const message = `🛡️ *Hola, estoy interesado en obtener una cotización para un seguro de auto. Aquí está mi información:* 🛡️
+
+*Información del Seguro:*
+• Edad del asegurado: ${insuredAge || "No especificada"}
+• Ingresos mensuales/anuales: ${monthlyIncome || "No especificados"}
+• Monto de ahorro deseado: ${savingsGoal || "No especificado"}
+• Plazo para el retiro: ${retirementYears || "No especificado"} años
+• Beneficiarios: ${beneficiaries || "No especificados"}
+• Estado de salud actual: ${healthStatus || "No especificado"}
+
+*Datos del Usuario:*
+• Nombre completo: ${fullName || "No especificado"}
+• Edad: ${userAge || "No especificada"}
+• Ingresos mensuales/anuales: ${userIncome || "No especificados"}
+• Beneficiarios: ${userBeneficiaries || "No especificados"}
+
+✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+
+    const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappLink, "_blank");
   };
 
   return (
@@ -22,10 +59,179 @@ const RetirementInsurance = () => {
       </button>
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg relative">
-            <button onClick={closeModal}>X</button>
+          <div className="p-6 rounded shadow-lg relative modal-insuranceQuestions">
+            <button onClick={closeModal} className="close-insuranceQuestions">
+              X
+            </button>
             {/* Contenido del modal */}
-            <div>retiro</div>
+            <div className="pagModals-insuranceQuestions">
+              {/* Página 1: info del seguro */}
+              <div
+                className={`pagModal1-insuranceQuestions ${
+                  currentPage === 1 ? "block" : "hidden"
+                } md:block`}
+              >
+                <h1>Información del Seguro</h1>
+
+                {/* Edad del asegurado */}
+                <label className="label-insuranceQuestions">
+                  Edad del asegurado:
+                  <input
+                    type="number"
+                    placeholder="Ejemplo: 40"
+                    className="input-insuranceQuestions"
+                    value={insuredAge}
+                    onChange={(e) => setInsuredAge(e.target.value)}
+                  />
+                </label>
+
+                {/* Ingresos mensuales o anuales */}
+                <label className="label-insuranceQuestions">
+                  Ingresos mensuales o anuales:
+                  <input
+                    type="number"
+                    placeholder="Ejemplo: 50000"
+                    className="input-insuranceQuestions"
+                    value={monthlyIncome}
+                    onChange={(e) => setMonthlyIncome(e.target.value)}
+                  />
+                </label>
+
+                {/* Monto de ahorro deseado */}
+                <label className="label-insuranceQuestions">
+                  Monto de ahorro deseado:
+                  <input
+                    type="number"
+                    placeholder="Ejemplo: 1000000"
+                    className="input-insuranceQuestions"
+                    value={savingsGoal}
+                    onChange={(e) => setSavingsGoal(e.target.value)}
+                  />
+                </label>
+
+                {/* Plazo para el retiro */}
+                <label className="label-insuranceQuestions">
+                  Plazo para el retiro (años hasta la jubilación):
+                  <input
+                    type="number"
+                    placeholder="Ejemplo: 20"
+                    className="input-insuranceQuestions"
+                    value={retirementYears}
+                    onChange={(e) => setRetirementYears(e.target.value)}
+                  />
+                </label>
+
+                {/* Beneficiarios */}
+                <label className="label-insuranceQuestions">
+                  Beneficiarios:
+                  <input
+                    type="text"
+                    placeholder="Ejemplo: Juan, María"
+                    className="input-insuranceQuestions"
+                    value={beneficiaries}
+                    onChange={(e) => setBeneficiaries(e.target.value)}
+                  />
+                </label>
+
+                {/* Estado de salud actual */}
+                <label className="label-insuranceQuestions">
+                  Estado de salud actual:
+                  <textarea
+                    placeholder="Ejemplo: Buena salud, sin enfermedades crónicas"
+                    className="input-insuranceQuestions"
+                    value={healthStatus}
+                    onChange={(e) => setHealthStatus(e.target.value)}
+                  />
+                </label>
+
+                {/* Botón para avanzar en móviles */}
+                <button
+                  className="button-insuranceQuestions md:hidden"
+                  onClick={() => setCurrentPage(2)}
+                >
+                  Siguiente
+                </button>
+              </div>
+
+              {/* Página 2: datos del usuario */}
+              <div
+                className={`pagModal2-insuranceQuestions ${
+                  currentPage === 2 ? "block" : "hidden"
+                } md:block`}
+              >
+                <h1>Datos del Usuario</h1>
+
+                {/* Nombre completo */}
+                <label className="label-insuranceQuestions">
+                  Nombre completo:
+                  <input
+                    type="text"
+                    placeholder="Ejemplo: Juan Pérez"
+                    className="input-insuranceQuestions"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                  />
+                </label>
+
+                {/* Edad */}
+                <label className="label-insuranceQuestions">
+                  Edad:
+                  <input
+                    type="number"
+                    placeholder="Ejemplo: 30"
+                    className="input-insuranceQuestions"
+                    value={userAge}
+                    onChange={(e) => setUserAge(e.target.value)}
+                  />
+                </label>
+
+                {/* Ingresos mensuales o anuales */}
+                <label className="label-insuranceQuestions">
+                  Ingresos mensuales o anuales:
+                  <input
+                    type="number"
+                    placeholder="Ejemplo: 50000"
+                    className="input-insuranceQuestions"
+                    value={userIncome}
+                    onChange={(e) => setUserIncome(e.target.value)}
+                  />
+                </label>
+
+                {/* Beneficiarios */}
+                <label className="label-insuranceQuestions">
+                  Beneficiarios:
+                  <input
+                    type="text"
+                    placeholder="Ejemplo: Juan, María"
+                    className="input-insuranceQuestions"
+                    value={userBeneficiaries}
+                    onChange={(e) => setUserBeneficiaries(e.target.value)}
+                  />
+                </label>
+
+                {/* Botones para navegar en móviles */}
+                <div className="flex justify-between md:hidden">
+                  <button
+                    className="button-insuranceQuestions"
+                    onClick={() => setCurrentPage(1)}
+                  >
+                    Anterior
+                  </button>
+                  <button
+                    onClick={sendToWhatsApp}
+                    className="button-insuranceQuestionsW"
+                  >
+                    Conoce tu Cotización
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button
+              onClick={sendToWhatsApp}
+              className="hidden sm:block button-insuranceQuestions"
+            >
+              Conoce tu Cotización
+            </button>
           </div>
         </div>
       )}

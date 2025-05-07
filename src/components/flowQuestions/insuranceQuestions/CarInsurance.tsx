@@ -27,26 +27,24 @@ const CarInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🚗 *Cotización de Seguro de Auto* 🚗
-
-*Información del Seguro:*
-•   *Marca:* ${brand || "No especificada"}
-•   *Modelo:* ${model || "No especificado"}
-•   *Año:* ${year || "No especificado"}
-•   *Uso:* ${usage || "No especificado"}
-•   *Kilometraje Anual:* ${mileage || "No especificado"} km
-•   *Código Postal:* ${postalCode || "No especificado"}
-•   *Cobertura Deseada:* ${coverage || "No especificada"}
-
-*Información del Beneficiario:*
-•   *Nombre Completo:* ${fullName || "No especificado"}
-•   *Edad:* ${age || "No especificada"} años
-•   *Género:* ${gender || "No especificado"}
-•   *Estado Civil:* ${maritalStatus || "No especificado"}
-•   *Historial de Manejo:* ${drivingHistory || "No especificado"}
-•   *Número de Licencia:* ${licenseNumber || "No especificado"}
-
-✨ ¡Gracias por confiar en nosotros! ✨`;
+    const message = `🚗 *Hola, estoy interesado en obtener una cotización para un seguro de auto. Aquí está mi información:* 🚗
+    *Información del Seguro:*
+    •   *Marca:* ${brand || "No especificada"}
+    •   *Modelo:* ${model || "No especificado"}
+    •   *Año:* ${year || "No especificado"}
+    •   *Uso:* ${usage || "No especificado"}
+    •   *Kilometraje Anual:* ${mileage || "No especificado"} km
+    •   *Código Postal:* ${postalCode || "No especificado"}
+    •   *Cobertura Deseada:* ${coverage || "No especificada"}
+    
+    *Información del Beneficiario:*
+    •   *Nombre Completo:* ${fullName || "No especificado"}
+    •   *Edad:* ${age || "No especificada"} años
+    •   *Género:* ${gender || "No especificado"}
+    •   *Estado Civil:* ${maritalStatus || "No especificado"}
+    •   *Historial de Manejo:* ${drivingHistory || "No especificado"}
+    •   *Número de Licencia:* ${licenseNumber || "No especificado"}
+✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
 
     const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
