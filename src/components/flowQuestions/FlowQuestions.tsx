@@ -52,6 +52,7 @@ const FlowQuestions = () => {
             <button onClick={closeModal} className="absolute top-2 right-2">
               X
             </button>
+            <h1>Coriza las veces que quieras!</h1>
             <div className="flex flex-col gap-4">
               <CarInsurance />
               <MotorcycleInsurance />

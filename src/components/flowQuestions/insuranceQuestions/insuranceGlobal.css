@@ -1,0 +1,120 @@
+/* Modal container */
+.modal-insuranceQuestions {
+  height: auto;
+  width: 60vw;
+  background-color: white;
+}
+
+.close-insuranceQuestions {
+  background-color: black;
+  width: 100%;
+  color: white;
+}
+
+.pagModals-insuranceQuestions {
+  display: flex;
+  flex-direction: row; /* Coloca los hijos en fila */
+  justify-content: space-between; /* Espacio entre las páginas */
+  gap: 16px; /* Espaciado entre las páginas */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  height: 100%; /* Asegura que ocupe toda la altura del contenedor */
+}
+.pagModal1-insuranceQuestions,
+.pagModal2-insuranceQuestions {
+  border: black 1px solid;
+  width: 50%;
+  height: 100%; /* Asegura que ocupe toda la altura del contenedor */
+  
+}
+
+/* Title positioning */
+.title-insuranceQuestions {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* Form container positioning */
+.container-form-insuranceQuestions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+/* Label positioning */
+.label-insuranceQuestions {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+}
+
+/* Input positioning */
+.input-insuranceQuestions {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Select positioning */
+.select-insuranceQuestions {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Button positioning */
+.button-insuranceQuestions {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  background-color: #1976d2;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-insuranceQuestions:hover {
+  background-color: #1565c0;
+}
+
+@media (max-width: 768px) {
+  .modal-insuranceQuestions {
+    height: auto; /* Ajusta la altura automáticamente */
+    width: 95vw; /* Ocupa el 95% del ancho de la pantalla */
+    padding: 16px;
+  }
+
+  .pagModals-insuranceQuestions {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+  }
+
+  .pagModal1-insuranceQuestions,
+  .pagModal2-insuranceQuestions {
+    width: 100%; /* Cada página ocupa todo el ancho */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+
+  .input-insuranceQuestions,
+  .select-insuranceQuestions,
+  .textarea-insuranceQuestions {
+    width: 100%; /* Asegura que las entradas ocupen todo el ancho */
+  }
+}
