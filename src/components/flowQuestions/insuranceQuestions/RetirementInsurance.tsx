@@ -24,23 +24,20 @@ const RetirementInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🛡️ *Hola, estoy interesado en obtener una cotización para un seguro de auto. Aquí está mi información:* 🛡️
-
-*Información del Seguro:*
-• Edad del asegurado: ${insuredAge || "No especificada"}
-• Ingresos mensuales/anuales: ${monthlyIncome || "No especificados"}
-• Monto de ahorro deseado: ${savingsGoal || "No especificado"}
-• Plazo para el retiro: ${retirementYears || "No especificado"} años
-• Beneficiarios: ${beneficiaries || "No especificados"}
-• Estado de salud actual: ${healthStatus || "No especificado"}
-
-*Datos del Usuario:*
-• Nombre completo: ${fullName || "No especificado"}
-• Edad: ${userAge || "No especificada"}
-• Ingresos mensuales/anuales: ${userIncome || "No especificados"}
-• Beneficiarios: ${userBeneficiaries || "No especificados"}
-
-✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+    const message = `🛡️ *Cotización de Seguro de Retiro. Aquí está mi información:* 🛡️
+    *Información del Seguro:*
+    • *Edad del asegurado:* ${insuredAge || "No especificada"}
+    • *Ingresos mes/año:* ${monthlyIncome || "No especificados"}
+    • *Monto ahorro deseado:* ${savingsGoal || "No especificado"}
+    • *Plazo para retiro:* ${retirementYears || "No especificado"} años
+    • *Beneficiarios:* ${beneficiaries || "No especificados"}
+    • *Estado salud actual:* ${healthStatus || "No especificado"}
+    *Datos del Usuario:*
+    • *Nombre completo:* ${fullName || "No especificado"}
+    • *Edad:* ${userAge || "No especificada"}
+    • *Ingresos mes/año:* ${userIncome || "No especificados"}
+    • *Beneficiarios:* ${userBeneficiaries || "No especificados"}
+    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
 
     const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(

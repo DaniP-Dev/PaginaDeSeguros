@@ -25,24 +25,21 @@ const HealthInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🏥 *Cotización de Seguro de Gastos Médicos* 🏥
-
-*Información del Seguro:*
-• Edad del asegurado: ${insuredAge || "No especificada"}
-• Género: ${insuredGender || "No especificado"}
-• Estado de salud actual: ${healthStatus || "No especificado"}
-• Cobertura deseada: ${coverageType || "No especificada"}
-• Número de asegurados: ${insuredCount || "No especificado"}
-• Código postal o ubicación: ${postalCode || "No especificado"}
-
-*Datos del Usuario:*
-• Nombre completo: ${fullName || "No especificado"}
-• Edad: ${userAge || "No especificada"}
-• Género: ${userGender || "No especificado"}
-• Estado de salud actual: ${userHealthStatus || "No especificado"}
-• Código postal o ubicación: ${userPostalCode || "No especificado"}
-
-¡Gracias por confiar en nosotros!`;
+    const message = `🏥 *Cotización de Seguro de Gastos Medicos. Aquí está mi información:* 🏥
+    *Información del Seguro:*
+    • *Edad* ${insuredAge || "No especificada"}
+    • *Género:* ${insuredGender || "No especificado"}
+    • *Estado salud actual:* ${healthStatus || "No especificado"}
+    • *Cobertura:* ${coverageType || "No especificada"}
+    • *Número de asegurados:* ${insuredCount || "No especificado"}
+    • *Código postal o ubicación:* ${postalCode || "No especificado"}
+    *Datos del Usuario:*
+    • *Nombre completo:* ${fullName || "No especificado"}
+    • *Edad:* ${userAge || "No especificada"}
+    • *Género:* ${userGender || "No especificado"}
+    • *Estado salud actual:* ${userHealthStatus || "No especificado"}
+    • *Código postal o ubicación:* ${userPostalCode || "No especificado"}
+    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
 
     const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(

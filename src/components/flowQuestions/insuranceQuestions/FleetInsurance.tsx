@@ -24,25 +24,20 @@ const FleetInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🚛 *Hola, estoy interesado en obtener una cotización para un seguro de flotilla. Aquí está mi información:* 🚛
-
-*Información de la Flotilla:*
-• Número de vehículos: ${vehicleCount || "No especificado"}
-• Detalles de los vehículos (marca, modelo, año): ${
-      vehicleDetails || "No especificados"
-    }
-• Uso de los vehículos: ${vehicleUsage || "No especificado"}
-• Kilometraje promedio anual: ${annualMileage || "No especificado"} km
-• Ubicación de la flotilla: ${fleetLocation || "No especificada"}
-• Tipo de cobertura deseada: ${coverageType || "No especificada"}
-
-*Datos del Usuario:*
-• Nombre de la empresa o responsable: ${companyName || "No especificado"}
-• RFC: ${rfc || "No especificado"}
-• Dirección o ubicación: ${address || "No especificada"}
-• Contacto (teléfono y correo electrónico): ${contactInfo || "No especificado"}
-
-✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+    const message = `🚛 *Cotización de Seguro de Flotilla. Aquí está mi información:* 🚛
+    *Información de la Flotilla:*
+    • *Número de vehículos:* ${vehicleCount || "No especificado"}
+    • *Detalles de los vehículos:* ${vehicleDetails || "No especificados"}
+    • *Uso de los vehículos:* ${vehicleUsage || "No especificado"}
+    • *Kilometraje anual:* ${annualMileage || "No especificado"} km
+    • *Ubicación de la flotilla:* ${fleetLocation || "No especificada"}
+    • *Tipo de cobertura:* ${coverageType || "No especificada"}
+    *Datos del Usuario:*
+    • *Nombre de la empresa o responsable:* ${companyName || "No especificado"}
+    • *RFC:* ${rfc || "No especificado"}
+    • *Dirección:* ${address || "No especificada"}
+    • *Contacto:* ${contactInfo || "No especificado"}
+    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
 
     const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(

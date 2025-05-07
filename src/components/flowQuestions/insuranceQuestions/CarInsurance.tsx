@@ -27,7 +27,7 @@ const CarInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🚗 *Hola, estoy interesado en obtener una cotización para un seguro de auto. Aquí está mi información:* 🚗
+    const message = `🚗 *Cotización de Seguro de Auto. Aquí está mi información:* 🚗
     *Información del Seguro:*
     •   *Marca:* ${brand || "No especificada"}
     •   *Modelo:* ${model || "No especificado"}
@@ -44,7 +44,7 @@ const CarInsurance = () => {
     •   *Estado Civil:* ${maritalStatus || "No especificado"}
     •   *Historial de Manejo:* ${drivingHistory || "No especificado"}
     •   *Número de Licencia:* ${licenseNumber || "No especificado"}
-✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
 
     const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(

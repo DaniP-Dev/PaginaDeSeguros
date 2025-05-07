@@ -26,25 +26,22 @@ const LifeSavingsInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `💰 *Cotización de Seguro de Vida + Ahorros* 💰
-
-*Información del Seguro:*
-• Edad del asegurado: ${insuredAge || "No especificada"}
-• Género: ${insuredGender || "No especificado"}
-• Ingresos mensuales/anuales: ${monthlyIncome || "No especificados"}
-• Monto de ahorro deseado: ${savingsGoal || "No especificado"}
-• Plazo del seguro: ${insuranceTerm || "No especificado"} años
-• Beneficiarios: ${beneficiaries || "No especificados"}
-• Estado de salud actual: ${healthStatus || "No especificado"}
-
-*Datos del Usuario:*
-• Nombre completo: ${fullName || "No especificado"}
-• Edad: ${userAge || "No especificada"}
-• Género: ${userGender || "No especificado"}
-• Ingresos mensuales/anuales: ${userIncome || "No especificados"}
-• Beneficiarios: ${userBeneficiaries || "No especificados"}
-
-¡Gracias por confiar en nosotros!`;
+    const message = `💰 *Cotización de Seguro de Vida+Ahorro. Aquí está mi información:* 💰
+    *Información del Seguro:*
+    • *Edad del asegurado:* ${insuredAge || "No especificada"}
+    • *Género:* ${insuredGender || "No especificado"}
+    • *Ingresos mes/año:* ${monthlyIncome || "No especificados"}
+    • *Monto ahorro deseado* ${savingsGoal || "No especificado"}
+    • *Plazo del seguro:* ${insuranceTerm || "No especificado"} años
+    • *Beneficiarios:* ${beneficiaries || "No especificados"}
+    • *Estado salud actual:* ${healthStatus || "No especificado"}
+    *Datos del Usuario:*
+    • *Nombre completo:* ${fullName || "No especificado"}
+    • *Edad:* ${userAge || "No especificada"}
+    • *Género:* ${userGender || "No especificado"}
+    • *Ingresos men/año* ${userIncome || "No especificados"}
+    • *Beneficiarios:* ${userBeneficiaries || "No especificados"}
+    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
 
     const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
