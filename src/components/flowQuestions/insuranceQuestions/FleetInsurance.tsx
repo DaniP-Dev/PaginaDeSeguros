@@ -24,25 +24,24 @@ const FleetInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🚛 *Cotización de Seguro de Flotilla. Aquí está mi información:* 🚛
+    const message = `🚛*Cotización de Seguro de Flotilla.*🚛
     *Información de la Flotilla:*
-    • *Número de vehículos:* ${vehicleCount || "No especificado"}
-    • *Detalles de los vehículos:* ${vehicleDetails || "No especificados"}
-    • *Uso de los vehículos:* ${vehicleUsage || "No especificado"}
-    • *Kilometraje anual:* ${annualMileage || "No especificado"} km
-    • *Ubicación de la flotilla:* ${fleetLocation || "No especificada"}
-    • *Tipo de cobertura:* ${coverageType || "No especificada"}
+    • *Número de vehículos:* ${vehicleCount || "Vacio"}
+    • *Detalles de los vehículos:* ${vehicleDetails || "Vacio"}
+    • *Uso de los vehículos:* ${vehicleUsage || "Vacio"}
+    • *Kilometraje anual:* ${annualMileage || "Vacio"} km
+    • *Ubicación de la flotilla:* ${fleetLocation || "Vacio"}
+    • *Tipo de cobertura:* ${coverageType || "Vacio"}
     *Datos del Usuario:*
-    • *Nombre de la empresa o responsable:* ${companyName || "No especificado"}
-    • *RFC:* ${rfc || "No especificado"}
-    • *Dirección:* ${address || "No especificada"}
-    • *Contacto:* ${contactInfo || "No especificado"}
-    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+    • *Nombre de la empresa o responsable:* ${companyName || "Vacio"}
+    • *RFC:* ${rfc || "Vacio"}
+    • *Dirección:* ${address || "Vacio"}
+    • *Contacto:* ${contactInfo || "Vacio"}
+    ✨Quedo atento a su respuesta. ¡Gracias!✨`;
 
-    const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
+    const whatsappNumber = "573016328564"; // Incluye el código de país sin signos '+' ni espacios
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
     window.open(whatsappLink, "_blank");
   };
 

@@ -25,26 +25,26 @@ const HealthInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🏥 *Cotización de Seguro de Gastos Medicos. Aquí está mi información:* 🏥
+    const message = `🏥*Cotización de Seguro de Gastos Médicos.*🏥
     *Información del Seguro:*
-    • *Edad* ${insuredAge || "No especificada"}
-    • *Género:* ${insuredGender || "No especificado"}
-    • *Estado salud actual:* ${healthStatus || "No especificado"}
-    • *Cobertura:* ${coverageType || "No especificada"}
-    • *Número de asegurados:* ${insuredCount || "No especificado"}
-    • *Código postal o ubicación:* ${postalCode || "No especificado"}
+    • *Edad:* ${insuredAge || "Vacío"}
+    • *Género:* ${insuredGender || "Vacío"}
+    • *Estado de salud actual:* ${healthStatus || "Vacío"}
+    • *Cobertura:* ${coverageType || "Vacío"}
+    • *Número de asegurados:* ${insuredCount || "Vacío"}
+    • *Código postal o ubicación:* ${postalCode || "Vacío"}
+  
     *Datos del Usuario:*
-    • *Nombre completo:* ${fullName || "No especificado"}
-    • *Edad:* ${userAge || "No especificada"}
-    • *Género:* ${userGender || "No especificado"}
-    • *Estado salud actual:* ${userHealthStatus || "No especificado"}
-    • *Código postal o ubicación:* ${userPostalCode || "No especificado"}
-    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+    • *Nombre completo:* ${fullName || "Vacío"}
+    • *Edad:* ${userAge || "Vacío"}
+    • *Género:* ${userGender || "Vacío"}
+    • *Estado de salud actual:* ${userHealthStatus || "Vacío"}
+    • *Código postal o ubicación:* ${userPostalCode || "Vacío"}
+    ✨Quedo atento a su respuesta. ¡Gracias!✨`;
 
-    const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
+    const whatsappNumber = "573016328564"; // Incluye el código de país sin signos '+' ni espacios
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
     window.open(whatsappLink, "_blank");
   };
 

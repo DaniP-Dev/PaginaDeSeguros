@@ -27,29 +27,28 @@ const CarInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🚗 *Cotización de Seguro de Auto. Aquí está mi información:* 🚗
+    const message = `🚗*Cotización de Seguro de Auto.*🚗
     *Información del Seguro:*
-    •   *Marca:* ${brand || "No especificada"}
-    •   *Modelo:* ${model || "No especificado"}
-    •   *Año:* ${year || "No especificado"}
-    •   *Uso:* ${usage || "No especificado"}
-    •   *Kilometraje Anual:* ${mileage || "No especificado"} km
-    •   *Código Postal:* ${postalCode || "No especificado"}
-    •   *Cobertura Deseada:* ${coverage || "No especificada"}
+    •   *Marca:* ${brand || "Vacio"}
+    •   *Modelo:* ${model || "Vacio"}
+    •   *Año:* ${year || "Vacio"}
+    •   *Uso:* ${usage || "Vacio"}
+    •   *Kilometraje Anual:* ${mileage || "Vacio"} km
+    •   *Código Postal:* ${postalCode || "Vacio"}
+    •   *Cobertura Deseada:* ${coverage || "Vacio"}
     
     *Información del Beneficiario:*
-    •   *Nombre Completo:* ${fullName || "No especificado"}
-    •   *Edad:* ${age || "No especificada"} años
-    •   *Género:* ${gender || "No especificado"}
-    •   *Estado Civil:* ${maritalStatus || "No especificado"}
-    •   *Historial de Manejo:* ${drivingHistory || "No especificado"}
-    •   *Número de Licencia:* ${licenseNumber || "No especificado"}
-    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+    •   *Nombre Completo:* ${fullName || "Vacio"}
+    •   *Edad:* ${age || "Vacio"} años
+    •   *Género:* ${gender || "Vacio"}
+    •   *Estado Civil:* ${maritalStatus || "Vacio"}
+    •   *Historial de Manejo:* ${drivingHistory || "Vacio"}
+    •   *Número de Licencia:* ${licenseNumber || "Vacio"}
+  ✨Quedo atento a su respuesta. ¡Gracias!✨`;
 
-    const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
+    const whatsappNumber = "573016328564"; // Incluye el código de país sin signos '+' ni espacios
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
     window.open(whatsappLink, "_blank");
   };
 

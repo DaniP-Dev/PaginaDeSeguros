@@ -24,25 +24,24 @@ const RetirementInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🛡️ *Cotización de Seguro de Retiro. Aquí está mi información:* 🛡️
+    const message = `🛡️*Cotización de Seguro de Retiro.*🛡️
     *Información del Seguro:*
-    • *Edad del asegurado:* ${insuredAge || "No especificada"}
-    • *Ingresos mes/año:* ${monthlyIncome || "No especificados"}
-    • *Monto ahorro deseado:* ${savingsGoal || "No especificado"}
-    • *Plazo para retiro:* ${retirementYears || "No especificado"} años
-    • *Beneficiarios:* ${beneficiaries || "No especificados"}
-    • *Estado salud actual:* ${healthStatus || "No especificado"}
+    • *Edad del asegurado:* ${insuredAge || "Vacio"}
+    • *Ingresos mes/año:* ${monthlyIncome || "Vacio"}
+    • *Monto ahorro deseado:* ${savingsGoal || "Vacio"}
+    • *Plazo para retiro:* ${retirementYears || "Vacio"} años
+    • *Beneficiarios:* ${beneficiaries || "Vacio"}
+    • *Estado salud actual:* ${healthStatus || "Vacio"}
     *Datos del Usuario:*
-    • *Nombre completo:* ${fullName || "No especificado"}
-    • *Edad:* ${userAge || "No especificada"}
-    • *Ingresos mes/año:* ${userIncome || "No especificados"}
-    • *Beneficiarios:* ${userBeneficiaries || "No especificados"}
-    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+    • *Nombre completo:* ${fullName || "Vacio"}
+    • *Edad:* ${userAge || "Vacio"}
+    • *Ingresos mes/año:* ${userIncome || "Vacio"}
+    • *Beneficiarios:* ${userBeneficiaries || "Vacio"}
+    ✨Quedo atento a su respuesta. ¡Gracias!✨`;
 
-    const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
+    const whatsappNumber = "573016328564"; // Incluye el código de país sin signos '+' ni espacios
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
     window.open(whatsappLink, "_blank");
   };
 

@@ -25,26 +25,25 @@ const MotorcycleInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `🏍️ *Cotización de Seguro de Moto. Aquí está mi información:* 🏍️
+    const message = `🏍️*Cotización de Seguro de Moto.*🏍️
     *Información de la Moto:*
-    • *Marca:* ${brand || "No especificada"}
-    • *Modelo:* ${model || "No especificado"}
-    • *Año:* ${year || "No especificado"}
-    • *Cilindraje:* ${engineCapacity || "No especificado"}
-    • *Uso:* ${usage || "No especificado"}
-    • *Código postal o ubicación:* ${postalCode || "No especificado"}
-    • *Tipo cobertura deseada:* ${coverage || "No especificada"}
+    • *Marca:* ${brand || "Vacio"}
+    • *Modelo:* ${model || "Vacio"}
+    • *Año:* ${year || "Vacio"}
+    • *Cilindraje:* ${engineCapacity || "Vacio"}
+    • *Uso:* ${usage || "Vacio"}
+    • *Código postal o ubicación:* ${postalCode || "Vacio"}
+    • *Tipo cobertura deseada:* ${coverage || "Vacio"}
     *Datos del Usuario:*
-    • *Nombre completo:* ${fullName || "No especificado"}
-    • *Edad: ${age || "No especificada"}
-    • *Código postal o ubicación:* ${userPostalCode || "No especificado"}
-    • *Número licencia:* ${licenseNumber || "No especificado"}
-    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+    • *Nombre completo:* ${fullName || "Vacio"}
+    • *Edad: ${age || "Vacio"}
+    • *Código postal o ubicación:* ${userPostalCode || "Vacio"}
+    • *Número licencia:* ${licenseNumber || "Vacio"}
+    ✨Quedo atento a su respuesta. ¡Gracias!✨`;
 
-    const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
+    const whatsappNumber = "573016328564"; // Incluye el código de país sin signos '+' ni espacios
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
     window.open(whatsappLink, "_blank");
   };
 

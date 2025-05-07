@@ -26,27 +26,26 @@ const LifeSavingsInsurance = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `💰 *Cotización de Seguro de Vida+Ahorro. Aquí está mi información:* 💰
+    const message = `💰*Cotización de Seguro de Vida+Ahorro.*💰
     *Información del Seguro:*
-    • *Edad del asegurado:* ${insuredAge || "No especificada"}
-    • *Género:* ${insuredGender || "No especificado"}
-    • *Ingresos mes/año:* ${monthlyIncome || "No especificados"}
-    • *Monto ahorro deseado* ${savingsGoal || "No especificado"}
-    • *Plazo del seguro:* ${insuranceTerm || "No especificado"} años
-    • *Beneficiarios:* ${beneficiaries || "No especificados"}
-    • *Estado salud actual:* ${healthStatus || "No especificado"}
+    • *Edad del asegurado:* ${insuredAge || "Vacio"}
+    • *Género:* ${insuredGender || "Vacio"}
+    • *Ingresos mes/año:* ${monthlyIncome || "Vacio"}
+    • *Monto ahorro deseado* ${savingsGoal || "Vacio"}
+    • *Plazo del seguro:* ${insuranceTerm || "Vacio"} años
+    • *Beneficiarios:* ${beneficiaries || "Vacio"}
+    • *Estado salud actual:* ${healthStatus || "Vacio"}
     *Datos del Usuario:*
-    • *Nombre completo:* ${fullName || "No especificado"}
-    • *Edad:* ${userAge || "No especificada"}
-    • *Género:* ${userGender || "No especificado"}
-    • *Ingresos men/año* ${userIncome || "No especificados"}
-    • *Beneficiarios:* ${userBeneficiaries || "No especificados"}
-    ✨ Quedo atento a su respuesta. ¡Gracias! ✨`;
+    • *Nombre completo:* ${fullName || "Vacio"}
+    • *Edad:* ${userAge || "Vacio"}
+    • *Género:* ${userGender || "Vacio"}
+    • *Ingresos men/año* ${userIncome || "Vacio"}
+    • *Beneficiarios:* ${userBeneficiaries || "Vacio"}
+    ✨Quedo atento a su respuesta. ¡Gracias!✨`;
 
-    const whatsappNumber = "3016328564"; // Reemplaza con el número de WhatsApp
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
+    const whatsappNumber = "573016328564"; // Incluye el código de país sin signos '+' ni espacios
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
     window.open(whatsappLink, "_blank");
   };
 
