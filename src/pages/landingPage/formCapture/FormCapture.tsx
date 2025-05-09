@@ -3,9 +3,9 @@ import React from "react";
 const FormCapture = () => {
   return (
     <>
-      <section className="bg-white text-gray-800 py-12 px-6 mt-10 rounded-xl shadow-md max-w-4xl mx-auto">
+      <section className="bg-white text-gray-800 py-12 px-6 mt-10 rounded-3xl shadow-lg max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-2">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-2">
             ¿Prefieres hablar con una persona real?
           </h2>
           <p className="text-lg text-gray-600">
@@ -18,27 +18,27 @@ const FormCapture = () => {
           <input
             type="text"
             placeholder="Nombre completo"
-            className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
           />
           <input
             type="email"
             placeholder="Correo electrónico"
-            className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
           />
           <input
             type="tel"
             placeholder="Número de teléfono"
-            className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 md:col-span-2"
+            className="border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 md:col-span-2"
           />
           <textarea
             placeholder="¿En qué podemos ayudarte?"
-            className="border border-gray-300 rounded-lg px-4 py-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 md:col-span-2"
+            className="border border-gray-300 rounded-xl px-4 py-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 md:col-span-2"
           ></textarea>
 
           <div className="md:col-span-2 text-center">
             <button
               type="submit"
-              className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
+              className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               Hablar con un asesor
             </button>

@@ -20,21 +20,23 @@ const CarouselContainer = () => {
     <>
       <div className="hidden lg:block">
         {rows.map((rowItems, rowIndex) => (
-          <div key={rowIndex} className="flex justify-center gap-4 mb-4">
+          <div key={rowIndex} className="flex justify-center gap-6 mb-6">
             {rowItems.map((item, itemIndex) => (
               <a
                 href="#openModal"
                 key={itemIndex}
-                className="flex-none w-[200px] transition ease-in-out duration-200 transform shadow-md hover:scale-105"
+                className="flex-none w-[200px] transition-transform duration-300 transform shadow-lg hover:scale-105 rounded-2xl overflow-hidden"
               >
-                <p>{item.name}</p>
+                <p className="text-center text-gray-800 font-medium mb-2">
+                  {item.name}
+                </p>
                 <video
                   src={item.url}
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-full"
+                  className="w-full rounded-lg"
                 />
               </a>
             ))}
@@ -42,13 +44,21 @@ const CarouselContainer = () => {
         ))}
 
         <div id="openModal" className="modalDialog">
-          <div>
-            <a href="#close" title="Close" className="close">
-              X
+          <div className="bg-white p-6 rounded-3xl shadow-xl max-w-md mx-auto">
+            <a
+              href="#close"
+              title="Close"
+              className="close bg-gray-200 hover:bg-gray-300 text-gray-600"
+            >
+              ×
             </a>
-            <h2>Mi modal</h2>
-            <p>Este es un ejemplo de modal, creado gracias al poder de CSS3.</p>
-            <p>
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+              Mi modal
+            </h2>
+            <p className="text-gray-600 mb-4">
+              Este es un ejemplo de modal, creado gracias al poder de CSS3.
+            </p>
+            <p className="text-gray-600">
               Puedes hacer un montón de cosas aquí, como alertas o incluso crear
               un formulario de registro aquí mismo.
             </p>
@@ -56,16 +66,18 @@ const CarouselContainer = () => {
         </div>
       </div>
 
-      <div className="block md:hidden overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
+      <div className="block md:hidden overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
         <div className="flex gap-4">
           {data.map((item, index) => (
             <a
               href="#openModalMobile"
               key={item.id || index}
-              className="flex-none w-[300px]"
+              className="flex-none w-[300px] transition-transform duration-300 transform hover:scale-105 rounded-2xl overflow-hidden shadow-md"
               onClick={() => setSelectedDesc(item.descripcion)}
             >
-              <p className="font-semibold mb-2">{item.name}</p>
+              <p className="font-semibold text-center mb-2 text-gray-800">
+                {item.name}
+              </p>
               <video
                 src={item.url}
                 autoPlay
@@ -80,21 +92,23 @@ const CarouselContainer = () => {
 
         {selectedDesc && (
           <div id="openModalMobile" className="modalDialog">
-            <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm mx-auto">
+            <div className="bg-white p-6 rounded-3xl shadow-xl max-w-sm mx-auto">
               <a
                 href="#close"
                 title="Close"
-                className="close text-gray-600 hover:text-gray-900"
+                className="close bg-gray-200 hover:bg-gray-300 text-gray-600"
               >
                 ×
               </a>
 
-              <h2 className="text-xl font-bold mb-2">{selectedDesc.title}</h2>
-              <p className="mb-2">{selectedDesc.detalle}</p>
-              <p className="mb-2">
+              <h2 className="text-xl font-bold mb-2 text-gray-800">
+                {selectedDesc.title}
+              </h2>
+              <p className="text-gray-600 mb-2">{selectedDesc.detalle}</p>
+              <p className="text-gray-600 mb-2">
                 <strong>Beneficios:</strong> {selectedDesc.beneficios}
               </p>
-              <p>
+              <p className="text-gray-600">
                 <strong>Cobertura:</strong> {selectedDesc.cobertura}
               </p>
             </div>

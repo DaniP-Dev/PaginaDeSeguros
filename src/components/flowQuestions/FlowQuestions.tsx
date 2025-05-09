@@ -35,25 +35,35 @@ const FlowQuestions = () => {
     <>
       <button
         onClick={openModal}
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
       >
         Abrir
       </button>
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Fondo oscuro translúcido */}
+          {/* Fondo oscuro translúcido con desenfoque */}
           <div
-            className="fixed inset-0 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm"
+            className="fixed inset-0 bg-black/50 backdrop-blur-md"
             onClick={closeModal} // Cerrar modal al hacer clic en el fondo
           ></div>
 
           {/* Contenido del modal */}
-          <div className="bg-white p-6 rounded relative z-10">
-            <button onClick={closeModal} className="absolute top-2 right-2">
-              X
+          <div className="bg-white p-8 rounded-2xl shadow-xl relative z-10 max-w-3xl w-full">
+            {/* Botón de cierre */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 bg-gray-200 hover:bg-gray-300 text-gray-600 font-bold rounded-full w-8 h-8 flex items-center justify-center"
+            >
+              ✕
             </button>
-            <h1>Coriza las veces que quieras!</h1>
-            <div className="flex flex-col gap-4">
+
+            {/* Título */}
+            <h1 className="text-center text-2xl font-semibold text-gray-800 mb-6">
+              ¡Cotiza las veces que quieras!
+            </h1>
+
+            {/* Contenido del modal */}
+            <div className="flex flex-col gap-6">
               <CarInsurance />
               <MotorcycleInsurance />
               <FleetInsurance />
