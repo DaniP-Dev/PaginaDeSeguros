@@ -18,6 +18,11 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+    <header className="bg-blue-600 text-white py-4">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <h1 className="text-3xl font-bold">Cotización App</h1>
+      </div>
+    </header>
       <div className="max-w-screen overflow-hidden mx-auto">
         <HeroSection />
         <FeaturesBenefits />
