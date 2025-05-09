@@ -54,15 +54,13 @@ const CarInsurance = () => {
 
   return (
     <>
-      <button
-        onClick={openModal}
-        className="openFlujo-insuranceQuestions"
-      >
+      <button onClick={openModal} className="openFlujo-insuranceQuestions">
         Auto
       </button>
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="p-6 rounded shadow-lg relative modal-insuranceQuestions">
+          <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"></div>
+          <div className="p-6 rounded shadow-lg relative modal-insuranceQuestions bg-white z-50">
             <button onClick={closeModal} className="close-insuranceQuestions">
               X
             </button>

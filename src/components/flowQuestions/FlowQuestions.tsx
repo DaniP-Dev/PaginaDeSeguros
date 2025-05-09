@@ -37,7 +37,7 @@ const FlowQuestions = () => {
         onClick={openModal}
         className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
       >
-        Abrir
+        Crea tu cotizacion gratis!
       </button>
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -63,7 +63,9 @@ const FlowQuestions = () => {
             </h1>
 
             {/* Contenido del modal */}
-            <div className="flex flex-col gap-6">
+            <div
+              className="flex flex-col gap-6"
+            >
               <CarInsurance />
               <MotorcycleInsurance />
               <FleetInsurance />
