@@ -4,7 +4,7 @@ const BotonWpp = () => {
   return (
     <>
       <a
-        href="https://wa.me/3016328564?text=Vengo%20de%20la%20página%20de%20cotización"
+        href="https://wa.me/573107673089?text=Vengo%20de%20la%20página%20de%20cotización"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 z-50 bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition duration-300"

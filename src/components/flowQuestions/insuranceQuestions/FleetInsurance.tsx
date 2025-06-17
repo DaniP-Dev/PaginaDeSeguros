@@ -39,7 +39,7 @@ const FleetInsurance = () => {
     • *Contacto:* ${contactInfo || "Vacio"}
     ✨Quedo atento a su respuesta. ¡Gracias!✨`;
 
-    const whatsappNumber = "573016328564"; // Incluye el código de país sin signos '+' ni espacios
+    const whatsappNumber = "573107673089"; // Incluye el código de país sin signos '+' ni espacios
     const encodedMessage = encodeURIComponent(message);
     const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
     window.open(whatsappLink, "_blank");
